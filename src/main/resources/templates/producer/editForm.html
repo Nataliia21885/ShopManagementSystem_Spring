@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="https://thymeleaf.org"
+      lang = "en">
+<head>
+    <title>Edit producer</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div th:include="navigation"></div>
+<div class="container">
+    <hr>
+    <h2>Update producer</h2>
+        <form action="/producer/save" method="POST" th:object="${producer}">
+            <input hidden="hidden" th:field="*{id}"/>
+            New producer name: <br>
+            <input type="text" name ="name"> <br>
+            <button type="submit">Update producer</button>
+        </form>
+    <hr>
+    <a style="color:blue;" th:href = "@{/producer/findAll}"> Back to Producer List</a>
+</div>
+</body>
+</html>

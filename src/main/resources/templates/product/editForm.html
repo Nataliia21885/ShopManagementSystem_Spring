@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="https://thymeleaf.org"
+      lang = "en">
+<head>
+    <title>Edit product</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div th:include="navigation"></div>
+<div class="container">
+    <hr>
+    <h2>Update product</h2>
+    <form action="/product/save" method="POST" th:object="${product}" >
+        <input hidden="hidden" th:field="*{id}"/>
+        New product name: <br>
+        <input type="text" name ="name"> <br>
+        New product price: <br>
+        <input type="number" name ="price"> <br>
+        Producer:
+        <select id="producer" name="producerId">
+            <option th:each="producer : ${producers}"
+                    th:value="${producer.id}"
+                    th:text="${producer.name} + ' ' + ${producer.id}">
+            </option>
+        </select> <br>
+        <button type="submit">Update product</button>
+    </form>
+    <hr>
+    <a style="color:blue;" th:href = "@{/product/findAll}"> Back to Product List</a>
+</div>
+</body>
+</html>

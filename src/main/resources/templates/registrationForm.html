@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="https://thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" th:href="@{https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+<form action="/registrationForm" method="post">
+    <label style="margin-left: 40px; ; margin-top: 10px" for="email"> Email: </label><br>
+    <input style="margin-left: 40px" type="text" id="email" name="email" required><br><br>
+    <label style="margin-left: 40px" for="password"> Password: </label><br>
+    <input style="margin-left: 40px" type="text" id="password" name="password" required><br><br>
+    <label style="margin-left: 40px" for="firstName"> First name: </label><br>
+    <input style="margin-left: 40px" type="text" id="firstName" name="firstName" required><br><br>
+    <label style="margin-left: 40px" for="lastName"> Last name: </label><br>
+    <input style="margin-left: 40px" type="text" id="lastName" name="lastName" required><br><br>
+    <button style="margin-left: 40px; margin-top: 20px" type="submit" class="btn btn-success btn-lg">Create</button>
+</form><br>
+<div th:text="${message}"></div>
+</body>
+</html>
